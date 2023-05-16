@@ -1,0 +1,2 @@
+# Files in this folder can be directly run using blic.run_examples() function:
+# But, it can only successfully output on the Gravity Supercomputer at the Department of Astronomy, Shanghai Jiao Tong University. Otherwise, the based input documents can not be found.

@@ -1,0 +1,69 @@
+# all parameters (file paths) are input in this file, please fill in carefully
+# all paths should be in quotes
+
+# (absolute) snapshot folder path
+data_path = '/home/cossim/IllustrisTNG/Illustris-3/subcat/'
+# the quoted name formats of snapshots with variable named 'isnap'
+# for example: "'snapshot_%d.hdf5' % isnap"
+file_name = "'SubSnap_%03d.hdf5' % isnap"
+
+# the column name(s) of positions, or the number of columns
+# if only one column is given, default pos_name[0], pos_name[1], pos_name[2] refer to x, y, z direction
+# should be in forms like: pos_name = ['a', 'b', 'c']; pos_name = [5, 6, 7]; pos_name = [6]; pos_name = ['pos']
+# if columns have names in input table, you are supposed to input names, but not numbers
+pos_name = ['ComovingAveragePosition']
+# the column name(s) of velocities, or the number of columns, formating as same as pos_name
+# could be empty if no vel. information
+vel_name = ['PhysicalAverageVelocity']
+# properties needed in lightcones, these columns will be read from input files and otherwise will not
+# the number of properties will also influence the allocated memory when programs are running
+# if all properties are used, input: props = ['all']
+props = ['TrackId', 'Mbound', 'HostHaloId', 'Rank', 'ComovingAveragePosition', 'PhysicalAverageVelocity']
+
+# (absolute) redshift table file path
+redshift_table_path = '/home/zltan/Illustris-3/i3redshift.csv'
+# the column name of redshift in table, like 'z'; it can also be a number
+# NOTICE: the length of redshift column will be treated as number of snapshots in simulation
+# the redshift would be decreasing while the snapshot num is increasing in this table
+redshift_col_name = 'z'
+
+# cosmic parameters
+O_M = 0.2726  # omega matter
+O_L = 0.7274  # omega lambda
+O_K = 0  # omega curvature
+
+# the length of side of simulation box, in (Mpc/h) unit
+boxsize = 75
+# the redshift cut in lightcones
+z_max = 0.1
+# the position of the observer in boxes, should be in 3-d
+observer_pos = [25, 50, 25]
+# random tiling switch, True or False
+ran_tiling = False
+# 'True' or 'False' to make a full-sky map, if False, ra_min, ra_max, dec_min, dec_max are needed
+full_sky = False
+# unit in degrees, not needed to change if full_sky = True
+ra_min = 50  # min 0
+ra_max = 55  # max 360
+dec_min = 50  # min -90
+dec_max = 55  # max 90
+
+# parallel options: the program will be paralleled using multiprocessing package
+# the max CPU cores will be used (only in one node for a server), multi-nodes' task is not permitted
+cores = 72
+
+# below are OPTIONAL parameters
+
+# output file path of lightcone mock catalogues, all outputs will be in hdf5 formats, you can give a dir end with '/', or dir + filename end without '.hdf5', default path is at '/blic_out'
+output_path = ""
+# for huge simulations, one snapshot may be stored in different files, in this case, you are supposed to
+# input the max branch number and the new file forms with variables named 'isnap' and 'ibranch'
+# in ordinary case, max_branch should be the number of files of last snapshot
+# NOTICE: objects at same 'ibranch' but in lower redshift files should all be included in higher redshift files
+max_branch = 0
+file_name_with_branchs = ''
+# this program can be paralleled in different snapshot branches (in different nodes for a server), input the max number
+# of tasks you may hope to run at same time
+max_running = 1
+
+

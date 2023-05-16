@@ -1,0 +1,28 @@
+#!/bin/sh
+#PBS -N BLiC-0
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=48:00:00
+#PBS -q normal
+#PBS -V
+#PBS -j oe
+#PBS -o 
+#PBS -S /bin/bash
+
+### cd ###
+
+### Set environment###
+echo "###############################################"
+echo "JOBID: " ${PBS_JOBID} 
+echo "JOBNAME: " ${PBS_JOBNAME} 
+module load anaconda/anaconda-mamba && echo $_ "LOADED"
+
+source activate mamba-python3
+
+echo python is here: `which python`
+echo python is here: `which ipython`
+
+### RUN ###
+python -u lightcones.py
+
+
+### CLEAN ###

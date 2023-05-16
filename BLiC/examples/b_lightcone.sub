@@ -1,0 +1,28 @@
+#!/bin/sh
+#PBS -N 9t-fullsky-2661
+#PBS -l nodes=1:ppn=72
+#PBS -l walltime=48:00:00
+#PBS -q normal
+#PBS -V
+#PBS -j oe
+#PBS -o ./out_fs_z2/4.1_output_${PBS_JOBNAME}
+#PBS -S /bin/bash
+ 
+cd /home/zltan/9t/
+
+### Set environment###
+echo "###############################################"
+echo "JOBID: " ${PBS_JOBID} 
+echo "JOBNAME: " ${PBS_JOBNAME} 
+module load anaconda/anaconda-mamba && echo $_ "LOADED"
+
+source activate mamba-python3
+
+echo python is here: `which python`
+echo python is here: `which ipython`
+
+### RUN ###
+python -u  b_lightcone.py
+
+
+### CLEAN ###

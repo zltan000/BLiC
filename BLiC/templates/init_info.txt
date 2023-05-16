@@ -1,0 +1,69 @@
+# All parameters (file paths) are input in this file by users, please fill in carefully
+# They are directly input to python files
+
+# (absolute) snapshot folder path
+data_path = ""
+# the quoted name formats of snapshots with variable named 'isnap', which means number i file of snapshots
+# for example: "'snapshot_%d.hdf5' % isnap"
+# the input file is supposed to have column names!
+file_name = "/"
+
+# the column name(s) of positions
+# if only one column is given, default pos_name[0], pos_name[1], pos_name[2] refer to x, y, z position
+# should be in forms like: pos_name = ['a', 'b', 'c']; pos_name = ['pos']
+pos_name = []
+# the column name(s) of velocities, formats as same as pos_name, the length should be equal to pos_name.
+# could be empty if no vel. information
+vel_name = []
+# properties needed in lightcones, including pos. and vel. These columns will be read from input files and otherwise will not
+# the number of properties will also influence the allocated memory when programs are running
+# if all properties are used, input: props = ['all']
+props = ['']
+
+# (absolute) redshift table file path
+redshift_table_path = ""
+# the column name of redshift in table, like 'z'; it can also be a number
+# NOTICE: the length of redshift column will be treated as number of snapshots in simulation
+# the redshift would be decreasing while the snapshot num is increasing in this table
+redshift_col_name = ""
+
+# cosmic parameters
+O_M =   # omega matter
+O_L =   # omega lambda
+O_K =   # omega curvature
+
+# the length of side of simulation box, in (Mpc/h) unit
+boxsize =
+# the redshift cut in lightcones
+z_max =
+# the position of the observer in original box, should be in 3-dimensions
+observer_pos = [ , , ]
+# random tiling switch, True or False
+ran_tiling = False
+# 'True' or 'False' to make a full-sky map, if False, ra_min, ra_max, dec_min, dec_max are needed
+full_sky = False
+# unit in degrees, not needed to change if full_sky = True
+ra_min = -1  # min 0
+ra_max = -1  # max 360
+dec_min = -1  # min -90
+dec_max = -1  # max 90
+
+# parallel options: the program will be paralleled using multiprocessing package
+# the max CPU cores will be used (only in one node for a server), multi-nodes' tasks are not permitted
+cores =
+
+# below are OPTIONAL parameters
+
+# output file path of lightcone mock catalogues, all outputs will be in hdf5 formats, you can give a dir end with '/', or dir + filename end without '.hdf5', default path is at '/blic_out'
+output_path = ""
+# for huge simulations, one snapshot may be stored in different files, in this case, you are supposed to
+# input the max branch number and the new file forms with variables named 'isnap' and 'ibranch'
+# in ordinary case, max_branch should be the number of files of the last snapshot
+# NOTICE: objects at same 'ibranch' but in lower redshift files should all be included in higher redshift files
+max_branch = 0
+file_name_with_branchs = ""
+# this program can be paralleled in different snapshot branches (in different nodes for a server), input the max number
+# of tasks you may hope to run at same time
+max_running = 1
+
+
