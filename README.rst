@@ -14,10 +14,10 @@ or using conda::
 
     conda install -c conda-forge blic
 
-If you have previously installed TreeCorr, and want to upgrade to a new
+If you have previously installed blic, and want to upgrade to a new
 released version, you should do::
 
-    pip install treecorr --upgrade
+    pip install blic --upgrade
     
 
 If you would rather download and install BLiC yourself,
