@@ -26,11 +26,7 @@ that is also relatively straightforward:
 1. Download BLiC
 ^^^^^^^^^^^^^^^^^^^^
 
-   You can download the latest tarball from::
-
-        https://github.com/zltan000/BLiC/releases/
-
-   Or you can clone the repository using either of the following::
+   You can clone the repository using either of the following::
 
         git clone https://github.com/zltan000/BLiC
 
