@@ -2,6 +2,8 @@
 # They are directly input to python files
 
 # (absolute) snapshot folder path
+# the snapshots needs to be sorted first, as the rows of each file are used to build the links between different snapshots,
+# so make sure that same objects are stored at same tows in the files.
 data_path = ""
 # the quoted name formats of snapshots with variable named 'isnap', which means number i file of snapshots
 # for example: "'snapshot_%d.hdf5' % isnap"
